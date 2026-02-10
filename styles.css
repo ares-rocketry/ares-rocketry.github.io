@@ -636,7 +636,7 @@ p {
 /* Sub-team Blocks */
 .subteam-block {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: var(--spacing-xl);
     margin-bottom: var(--spacing-xl);
     align-items: start;
@@ -646,29 +646,29 @@ p {
     box-shadow: var(--shadow-card);
 }
 
-/* Support for multiple images - display below text at full width */
-.subteam-block:has(.subteam-block__image:nth-child(3)) {
-    grid-template-columns: 1fr;
-    row-gap: 20px;
-}
-
-.subteam-block:has(.subteam-block__image:nth-child(3)) .subteam-block__content {
+.subteam-block__content {
     grid-column: 1;
     grid-row: 1;
 }
 
-.subteam-block:has(.subteam-block__image:nth-child(3)) .subteam-block__image {
+.subteam-block__image {
     grid-column: 1;
     width: 100%;
     min-height: 500px;
 }
 
+/* Support for multiple images - display below text at full width */
 .subteam-block:has(.subteam-block__image:nth-child(3)) .subteam-block__image:nth-child(2) {
     grid-row: 2;
 }
 
 .subteam-block:has(.subteam-block__image:nth-child(3)) .subteam-block__image:nth-child(3) {
     grid-row: 3;
+}
+
+/* Single image layout */
+.subteam-block:has(.subteam-block__image:nth-child(2):last-child) .subteam-block__image {
+    grid-row: 2;
 }
 
 .subteam-block.reverse {
