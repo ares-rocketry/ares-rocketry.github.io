@@ -127,16 +127,20 @@
             background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 60%, transparent 100%);
             padding: 40px;
             color: white;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-hero-overlay .project-year {
-            color: var(--color-secondary);
-            margin-bottom: 10px;
+            color: white;
+            margin-top: 15px;
+            order: 2;
         }
 
         .project-hero-overlay .project-title {
             color: white;
             margin: 0;
+            order: 1;
         }
 
         .project-title-crop {
@@ -348,8 +352,9 @@
 
         .timeline-image img {
             width: 100%;
-            max-width: 350px;
-            height: 200px;
+            max-width: 800px;
+            height: auto;
+            max-height: 600px;
             object-fit: cover;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -474,7 +479,6 @@
                             Competition in New South Wales.</p>
                         <div class="project-gallery">
                             <img src="assets/ARES Photos/Propulsion/test_stand.jpeg" alt="Hybrid test stand">
-                            <img src="assets/ARES Photos/Propulsion/cold_flow.jpeg" alt="Cold flow testing">
                             <img src="assets/ARES Photos/Propulsion/hotfire_side.jpeg" alt="Hotfire side view">
                             <img src="assets/ARES Photos/Propulsion/DAQ_highres.jpeg" alt="Data acquisition system">
                         </div>
@@ -591,7 +595,7 @@
                             Charles Hoult Award for Modelling and Simulation for the team's work analysing and
                             manufacturing Phobos' aerodynamic transition.</p>
                         <div class="project-gallery">
-                            <img src="assets/ARES Photos/IRECTeam.JPG" alt="IREC Team photo">
+                            <img src="assets/ARES Photos/Deimos/test_deimos.jpeg" alt="IREC Team photo">
                             <img src="assets/ARES Photos/SAC.jpeg" alt="SAC launch">
                         </div>
                     </div>
@@ -599,9 +603,9 @@
                     <!-- Big Blue -->
                     <div id="bigblue" class="project-content">
                         <div class="project-hero">
-                            <img src="assets/ARES Photos/Deimos/big_blue.jpeg" alt="Big Blue rocket">
+                            <img src="assets/ARES%20Photos/bigBlueLaunch.jpg" alt="Big Blue rocket">
                             <div class="project-hero-overlay">
-                                <span class="project-year">SAC 2021</span>
+                                <span class="project-year">Serpentine, Victoria 2022</span>
                                 <h2 class="project-title">Project Big Blue</h2>
                             </div>
                         </div>
@@ -613,7 +617,8 @@
                             competitions rockets to follow. The rocket stands proudly on display next to its successors
                             in ARES' workshop as a reminder of how far the team has come.</p>
                         <div class="project-gallery">
-                            <img src="assets/ARES Photos/launch.jpeg" alt="Rocket launch">
+                            <img src="assets/ARES%20Photos/bigBlueFlight.jpg" alt="Big Blue in flight">
+                            <img src="assets/ARES%20Photos/bigBlueteam.jpg" alt="Big Blue team">
                         </div>
                     </div>
                 </div>
@@ -636,11 +641,11 @@
                         </div>
                     </div>
                     <div class="timeline-image right">
-                        <img src="assets/ARES Photos/Deimos/big_blue?.jpeg" alt="Big Blue rocket">
+                        <img src="assets/ARES Photos/bigBlueLaunch.jpg" alt="Big Blue rocket">
                     </div>
                     <div class="history-timeline-entry right">
                         <div class="history-content">
-                            <h3>2021</h3>
+                            <h3>2022</h3>
                             <p>ARES launches our first team rocket 'Big Blue.'</p>
                         </div>
                     </div>
@@ -678,7 +683,7 @@
                         </div>
                     </div>
                     <div class="timeline-image right">
-                        <img src="assets/ARES Photos/integrating_rail.jpeg" alt="Integration work">
+                        <img src="assets/ARES Photos/lemaire_launch_team.JPG" alt="Integration work">
                     </div>
                     <div class="history-timeline-entry right">
                         <div class="history-content">
@@ -691,8 +696,8 @@
                                 to develop a hybrid engine rocket.</p>
                         </div>
                     </div>
-                    <div class="timeline-image right">
-                        <img src="assets/ARES Photos/Teams Photos/LemaireTeam.JPG" alt="Lemaire team">
+                    <div class="timeline-image left">
+                        <img src="assets/ARES Photos/launch.jpeg" alt="Lemaire team">
                     </div>
 
                     <!-- Future Events -->
@@ -715,25 +720,21 @@
                     <div class="history-timeline-entry left future">
                         <div class="history-content">
                             <h3>Late 2026</h3>
-                            <p><strong>Planned:</strong> Final preparations and launch readiness testing. The team will
-                                conduct comprehensive system checks and prepare for the inaugural hybrid rocket launch.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="history-timeline-entry right future">
-                        <div class="history-content">
-                            <h3>End of 2026 Launch Season</h3>
-                            <p><strong>Planned:</strong> Launch of ARES' first hybrid rocket engine to 10,000 ft at
+                            <p><strong>Planned:</strong> Final preparations, launch readiness testing, and the launch of
+                                ARES' first hybrid rocket engine to 10,000 ft at
                                 Tolarno Station. This milestone represents the culmination of the team's two-year hybrid
                                 propulsion development program.</p>
                         </div>
+                    </div>
+                    <div class="timeline-image right">
+                        <img src="assets/ARES%20Photos/Propulsion/cold_flow.jpeg" alt="Cold flow testing">
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-        <footer class="footer">
+    <footer class="footer">
         <div class="container footer__container">
             <div class="footer__copyright">
                 <p>
@@ -747,13 +748,16 @@
                 <a href="https://www.facebook.com/unimelbARES/" target="_blank" rel="noopener" aria-label="Facebook">
                     <i class="fab fa-facebook"></i>
                 </a>
-                <a href="https://www.instagram.com/aresunimelb/?hl=en" target="_blank" rel="noopener" aria-label="Instagram">
+                <a href="https://www.instagram.com/aresunimelb/?hl=en" target="_blank" rel="noopener"
+                    aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://au.linkedin.com/company/aresunimelb" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <a href="https://au.linkedin.com/company/aresunimelb" target="_blank" rel="noopener"
+                    aria-label="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://www.youtube.com/channel/UCSasWA_I84a9hVrnzslJ3YQ" target="_blank" rel="noopener" aria-label="YouTube">
+                <a href="https://www.youtube.com/channel/UCSasWA_I84a9hVrnzslJ3YQ" target="_blank" rel="noopener"
+                    aria-label="YouTube">
                     <i class="fab fa-youtube"></i>
                 </a>
                 <a href="mailto:ares-rocketry@unimelb.edu.au" aria-label="Email">
