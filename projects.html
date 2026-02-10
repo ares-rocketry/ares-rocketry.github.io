@@ -216,7 +216,8 @@
         /* History Timeline Styles */
         .history-timeline-container {
             position: relative;
-            max-width: 900px;
+            max-width: 1100px;
+            /* Increased from 900px for larger images */
             margin: 0 auto;
             padding: 40px 0;
         }
@@ -225,7 +226,8 @@
             content: '';
             position: absolute;
             width: 3px;
-            background: linear-gradient(to bottom, var(--color-primary) 0%, var(--color-secondary) 100%);
+            /* Smooth gradient transition to light blue for future section */
+            background: linear-gradient(to bottom, var(--color-primary) 45%, var(--color-secondary) 100%);
             top: 0;
             bottom: 0;
             left: 50%;
@@ -243,15 +245,16 @@
         .history-timeline-entry::after {
             content: '';
             position: absolute;
-            width: 16px;
-            height: 16px;
-            right: -8px;
-            background-color: var(--color-white);
-            border: 3px solid var(--color-primary);
-            top: 24px;
-            border-radius: 50%;
+            width: 50px;
+            height: 25px;
+            /* Height for curve */
+            background-color: transparent;
+            /* Curved line logic */
+            border-bottom: 3px solid var(--color-primary);
+            top: 15px;
+            /* Positioned so bottom edge aligns approx with title (~40px from top) */
             z-index: 2;
-            box-shadow: 0 0 0 4px rgba(0, 96, 169, 0.2);
+            box-shadow: none;
         }
 
         .history-timeline-entry.future {
@@ -259,79 +262,68 @@
         }
 
         .history-timeline-entry.future::after {
-            border: 3px dashed var(--color-secondary);
             background-color: transparent;
+            border-bottom: 3px dashed var(--color-secondary);
+            border-right: 3px dashed var(--color-secondary);
+            /* Needs to match curve side */
+            height: 25px;
+        }
+
+        /* Specific borders for curves */
+        .history-timeline-entry.left::after {
+            right: -1.5px;
+            /* Half of center line width (3px) to align perfectly */
+            border-right: 3px solid var(--color-primary);
+            border-bottom-right-radius: 20px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .history-timeline-entry.right::after {
+            left: -1.5px;
+            /* Half of center line width (3px) to align perfectly */
+            border-left: 3px solid var(--color-primary);
+            border-bottom-left-radius: 20px;
+            border-right: none;
+            border-top: none;
+        }
+
+        /* Future lines dashed */
+        .history-timeline-entry.future.left::after {
+            border-right: 3px dashed var(--color-secondary);
+            border-bottom: 3px dashed var(--color-secondary);
+        }
+
+        .history-timeline-entry.future.right::after {
+            border-left: 3px dashed var(--color-secondary);
+            border-bottom: 3px dashed var(--color-secondary);
         }
 
         .history-timeline-entry.future .history-content {
-            border-left: 3px solid var(--color-secondary);
+            border-left: none;
+            /* Removed as per request */
         }
 
         .history-timeline-entry.left {
             left: 0;
+            text-align: right;
+            padding-right: 70px;
+            /* Increase padding to accommodate curve */
         }
 
         .history-timeline-entry.right {
             left: 50%;
+            padding-left: 70px;
+            /* Increase padding to accommodate curve */
         }
 
-        .history-timeline-entry.left::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            right: 30px;
-            border: medium solid white;
-            border-width: 10px 0 10px 10px;
-            border-color: transparent transparent transparent white;
-        }
-
+        /* Remove the triangle pointers if lines go directly to box */
+        .history-timeline-entry.left::before,
         .history-timeline-entry.right::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            left: 30px;
-            border: medium solid white;
-            border-width: 10px 10px 10px 0;
-            border-color: transparent white transparent transparent;
+            display: none;
         }
 
-        .history-timeline-entry.right::after {
-            left: -10px;
-        }
-
-        .history-content {
-            padding: 24px 32px;
-            background-color: white;
-            position: relative;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border-left: 4px solid var(--color-primary);
-        }
-
-        .history-content:hover {
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-            transform: translateY(-2px);
-        }
-
-        .history-content h3 {
-            color: var(--color-primary);
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-
-        .history-content p {
-            line-height: 1.6;
-            color: var(--color-text-main);
-        }
-
-        /* Timeline Images */
+        /* Timeline Images - RESTORED */
         .timeline-image {
             padding: 15px 50px;
             position: relative;
@@ -368,6 +360,7 @@
             z-index: 3;
         }
 
+        /* Update mobile styles for lines */
         @media screen and (max-width: 600px) {
             .history-timeline-container::after {
                 left: 31px;
@@ -377,27 +370,51 @@
                 width: 100%;
                 padding-left: 70px;
                 padding-right: 25px;
+                text-align: left;
+                /* Reset text align */
             }
 
             .history-timeline-entry::after {
-                left: 21px;
+                left: 31px;
+                width: 40px;
+                height: 25px;
+                /* Reset to standard curve for left-aligned mobile */
+                right: auto;
+                border-left: 3px solid var(--color-primary);
+                border-bottom-left-radius: 20px;
+                border-right: none;
+
+                /* But wait, main line is on left. Content is on right. */
+                /* Curve should go from Line (Left) to Content (Right). */
+                /* So it needs border-left (vertical) and border-bottom (horizontal). */
+                /* And border-bottom-left-radius. */
             }
 
             .history-timeline-entry.left::after,
             .history-timeline-entry.right::after {
-                left: 21px;
+                left: 31px;
+                right: auto;
+                border-left: 3px solid var(--color-primary);
+                border-bottom-left-radius: 20px;
+                border-right: none;
+                border-bottom-right-radius: 0;
+            }
+
+            .history-timeline-entry.future.left::after,
+            .history-timeline-entry.future.right::after {
+                border-left: 3px dashed var(--color-secondary);
+                border-bottom: 3px dashed var(--color-secondary);
+                border-right: none;
             }
 
             .history-timeline-entry.right {
                 left: 0%;
             }
 
+            /* Hide triangles on mobile too */
             .history-timeline-entry.left::before,
             .history-timeline-entry.right::before {
-                left: 60px;
-                border: medium solid white;
-                border-width: 10px 10px 10px 0;
-                border-color: transparent white transparent transparent;
+                display: none;
             }
 
             .timeline-image {
@@ -722,12 +739,13 @@
                             <h3>Late 2026</h3>
                             <p><strong>Planned:</strong> Final preparations, launch readiness testing, and the launch of
                                 ARES' first hybrid rocket engine to 10,000 ft at
-                                Tolarno Station. This milestone represents the halfway point of the team's two-year hybrid
+                                Tolarno Station. This milestone represents the halfway point of the team's two-year
+                                hybrid
                                 propulsion development program.</p>
                         </div>
                     </div>
                     <div class="timeline-image right animate-on-scroll">
-                        <img src="assets/ARES%20Photos/Propulsion/cold_flow.jpeg" alt="Cold flow testing">
+                        <img src="assets/ARES%20Photos/Payload/payload_2.jpg" alt="Cold flow testing">
                     </div>
                 </div>
             </div>
