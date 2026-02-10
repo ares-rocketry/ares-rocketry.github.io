@@ -74,4 +74,46 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update on scroll
         window.addEventListener('scroll', updateHeaderBackground);
     }
+
+    // --- Animation Initialization ---
+    // 1. Landing Page Animations
+    const heroContent = document.querySelector('.hero__content');
+    if (heroContent) {
+        const subtitle = heroContent.querySelector('.hero__subtitle');
+        const actions = heroContent.querySelector('.hero__actions');
+
+        if (subtitle) {
+            subtitle.classList.add('hero-animate');
+            subtitle.classList.add('delay-100');
+        }
+
+        if (actions) {
+            const buttons = actions.querySelectorAll('.btn');
+            buttons.forEach((btn, index) => {
+                btn.classList.add('hero-animate');
+                // Stagger button animations: 200ms, 300ms, etc.
+                if (index === 0) btn.classList.add('delay-200');
+                if (index === 1) btn.classList.add('delay-300');
+            });
+        }
+    }
+
+    // 2. Scroll Animations (Intersection Observer)
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15 // Trigger when 15% of element is visible
+    };
+
+    const scrollObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Animate only once
+            }
+        });
+    }, observerOptions);
+
+    const scrollElements = document.querySelectorAll('.animate-on-scroll');
+    scrollElements.forEach(el => scrollObserver.observe(el));
 });
