@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team members | ARES Rocketry</title>
+    <meta name="description" content="Meet the ARES Rocketry leadership and team.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/ares-logo.png" type="image/png">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="header">
+        <div class="container header__container">
+            <a href="index.html" class="logo">
+                <img src="assets/ares-logo.png" alt="ARES Rocketry Logo" class="logo__img">
+                <span class="logo__text">ARES</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation"><span class="hamburger"></span></button>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="about.html" class="nav__link">About us</a></li>
+                    <li class="nav__item"><a href="subteams.html" class="nav__link">Team</a></li>
+                    <li class="nav__item"><a href="achievements.html" class="nav__link">Achievements</a></li>
+                    <li class="nav__item"><a href="news.html" class="nav__link">News</a></li>
+                    <li class="nav__item"><a href="gallery.html" class="nav__link">Gallery</a></li>
+                    <li class="nav__item"><a href="sponsors.html" class="nav__link">Sponsors</a></li>
+                    <li class="nav__item"><a href="team.html" class="nav__link active">Team members</a></li>
+                    <li class="nav__item"><a href="join.html" class="nav__link btn btn--primary">Join Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section team" style="padding-top: 120px;">
+            <div class="container">
+                <h2 class="section__title">Team Members</h2>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">
+                    <strong>115</strong> Team Members &bull; <strong>6</strong> Sub-teams
+                </p>
+
+                <h3 style="text-align: center; margin-bottom: 30px;">Leadership</h3>
+                <!-- Using grid-4-col to ensure 4 items per row -->
+                <div class="grid-4-col" style="margin-bottom: 50px;">
+                    <div class="team-card">
+                        <div class="team-card__image-placeholder"></div>
+                        <h3 class="team-card__name">Lachlan Miegel</h3>
+                        <p class="team-card__role">Team Lead</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-card__image-placeholder"></div>
+                        <h3 class="team-card__name">Charles Herman</h3>
+                        <p class="team-card__role">Chief Engineer</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-card__image-placeholder"></div>
+                        <h3 class="team-card__name">Will Borden</h3>
+                        <p class="team-card__role">Lead Systems Engineer</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-card__image-placeholder"></div>
+                        <h3 class="team-card__name">Jemima Harman</h3>
+                        <p class="team-card__role">Head of Business</p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 50px;">
+                    <p>Want to see our technical sub-teams?</p>
+                    <a href="subteams.html" class="btn btn--outline"
+                        style="color: var(--color-primary); border-color: var(--color-primary);">View Sub-teams</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__copyright">
+                <p>
+                    &copy;
+                    <script>document.write(new Date().getFullYear())</script>
+                    ARES Rocketry. All rights reserved.
+                </p>
+            </div>
+
+            <div class="footer__socials">
+                <a href="https://www.facebook.com/unimelbARES/" target="_blank" rel="noopener" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/aresunimelb/?hl=en" target="_blank" rel="noopener" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://au.linkedin.com/company/aresunimelb" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCSasWA_I84a9hVrnzslJ3YQ" target="_blank" rel="noopener" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="mailto:contact@aresrocketry.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+            <div class="footer__logo">
+                <img src="assets/ares-logo.png" alt="ARES Logo">
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

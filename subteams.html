@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sub-teams & Leadership | ARES Rocketry</title>
+    <meta name="description" content="Meet the ARES Rocketry leadership and explore our technical sub-teams in depth.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/ares-logo.png" type="image/png">
+    <style>
+        /* Internal styles for specific tab functionality */
+        .subteam-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: 2px solid transparent;
+            /* default no border */
+            border-radius: 30px;
+            padding: 10px 25px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            color: var(--color-text-main);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .tab-btn:hover {
+            background-color: var(--color-bg-light);
+            color: var(--color-primary);
+        }
+
+        .tab-btn.active {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border-color: var(--color-primary);
+            box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+        }
+
+        .subteam-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .subteam-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Image Grid for Gallery */
+        .subteam-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery-placeholder {
+            height: 200px;
+            background-color: #f0f0f0;
+            border: 2px dashed #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="header">
+        <div class="header__container">
+            <a href="index.html" class="logo">
+                <img src="assets/ares-logo.png" alt="ARES Rocketry Logo" class="logo__img">
+            </a>
+
+            <button class="nav-toggle" aria-label="Toggle navigation"><span class="hamburger"></span></button>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="about.html" class="nav__link">About Us</a></li>
+                    <li class="nav__item"><a href="subteams.html" class="nav__link active">Team</a></li>
+                    <li class="nav__item"><a href="sponsors.html" class="nav__link">Sponsors</a></li>
+                    <li class="nav__item"><a href="projects.html" class="nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="news.html" class="nav__link">News</a></li>
+                    <li class="nav__item"><a href="gallery.html" class="nav__link">Gallery</a></li>
+                    <li class="nav__item"><a href="join.html" class="nav__link btn btn--primary">Join Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Leadership Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section__title">Leadership</h2>
+                <div class="grid-4-col" style="margin-bottom: 60px;">
+                    <div class="team-card">
+                        <div class="team-card__image-placeholder">
+                            <img src="assets/leadership/miegel-team_lead.png" alt="Lachlan Miegel"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 class="team-card__name">Lachlan Miegel</h3>
+                        <p class="team-card__role">Team Lead</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-card__image-placeholder">
+                            <img src="assets/leadership/charlie-chief_eng.png" alt="Charles Herman"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 class="team-card__name">Charles Herman</h3>
+                        <p class="team-card__role">Chief Engineer</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-card__image-placeholder">
+                            <img src="assets/leadership/willBorden-sys_eng.png" alt="Will Borden"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 class="team-card__name">Will Borden</h3>
+                        <p class="team-card__role">Lead Systems Engineer</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-card__image-placeholder">
+                            <img src="assets/leadership/jemima-business.png" alt="Jemima Harman"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 class="team-card__name">Jemima Harman</h3>
+                        <p class="team-card__role">Head of Business</p>
+                    </div>
+                </div>
+
+                <h2 class="section__title">Our Sub-teams</h2>
+
+                <!-- Sub-team Navigation Tabs -->
+                <div class="subteam-tabs">
+                    <button class="tab-btn active" onclick="openSubteam('aerostructures')">Aerostructures</button>
+                    <button class="tab-btn" onclick="openSubteam('propulsion')">Propulsion</button>
+                    <button class="tab-btn" onclick="openSubteam('avionics')">Avionics</button>
+                    <button class="tab-btn" onclick="openSubteam('recovery')">Recovery</button>
+                    <button class="tab-btn" onclick="openSubteam('payload')">Payload</button>
+                    <button class="tab-btn" onclick="openSubteam('operations')">Operations & Logistics</button>
+                </div>
+
+                <!-- Aerostructures Content -->
+                <div id="aerostructures" class="subteam-content active">
+                    <div class="subteam-block">
+                        <div class="subteam-block__content">
+                            <h3>Aerostructures</h3>
+                            <p class="subteam-leads"><strong>Team Leads:</strong> Jules Seng, Alexandra Margiolis, Ennis
+                                Wong</p>
+
+                            <p>The Aerostructures team designs and manufactures the rocket's airframe and internal
+                                structural components. The team combines aerodynamic analysis and mechanical design to
+                                develop and produce critical parts such as the nose cone, boat tail, and bulkheads. This
+                                involves tasks ranging from Computational Fluid Dynamics (CFD) and Computer-Aided Design
+                                (CAD) to Structural Simulation and hands-on Manufacturing.</p>
+                            <p>Past projects include the simulation of air brakes at various extensions to determine
+                                their drag profile, the development of retractable rail guides, and a resin-infused
+                                fiberglass recovery parachute compartment.</p>
+
+                            <h4>Core Responsibilities</h4>
+                            <ul class="responsibility-list">
+                                <li><strong>Computational Fluid Dynamics (CFD):</strong> Optimising aerodynamic surfaces
+                                    for stability and drag reduction, alongside flow visualisation and modelling the
+                                    rocket’s drag curve</li>
+                                <li><strong>Airframe Development:</strong> Using CAD and simulation tools to iterate the
+                                    overall rocket design to align with competition parameters</li>
+                                <li><strong>Internal Components:</strong> Liaising with other sub-teams to understand
+                                    structural requirements, complete CAD modelling, and conduct Finite Element Analysis
+                                    (FEA) to validate strengths</li>
+                                <li><strong>Research and Development Projects:</strong> Investigating ways to advance
+                                    Aerostructures design and manufacturing capabilities, such as improving CFD
+                                    modelling techniques and developing new composite manufacturing methods</li>
+                                <li><strong>Manufacturing:</strong> Fabricating parts using composite techniques such as
+                                    resin infusion, and CNC processes to build the competition rocket</li>
+                            </ul>
+                            <p style="margin-top: 15px;">Team members collaborate closely and gain exposure to all
+                                skills throughout the full lifecycle of design, validation, and production. From CFD
+                                simulations to composite manufacturing, Aerostructures works across a range of
+                                mechanical engineering disciplines and fundamentals.</p>
+                        </div>
+                        <div class="subteam-block__image">
+                            <div class="placeholder-img" style="height: 100%;">Feature Image</div>
+                        </div>
+                    </div>
+                    <!-- Photo Grid -->
+                    <div class="subteam-gallery">
+                        <div class="gallery-placeholder">Photo 1</div>
+                        <div class="gallery-placeholder">Photo 2</div>
+                        <div class="gallery-placeholder">Photo 3</div>
+                        <div class="gallery-placeholder">Photo 4</div>
+                    </div>
+                </div>
+
+                <!-- Propulsion Content -->
+                <div id="propulsion" class="subteam-content">
+                    <div class="subteam-block">
+                        <div class="subteam-block__content">
+                            <h3>Propulsion</h3>
+                            <p class="subteam-leads"><strong>Team Leads:</strong> Brooke Doolan, Steven Wang</p>
+
+                            <p>The Propulsion team is responsible for the end-to-end design, development and testing of
+                                student-built rocket engines. This includes everything from subscale hardware to
+                                full-scale hybrid systems ready for flight integration. Previously, the team developed a
+                                sub-scale test stand, Data Acquisition (DAQ) & Control cabinet, and fluid system. The
+                                current focus is on hot fire testing and building the first ARES full-scale hybrid
+                                rocket engine for integration into a launch vehicle by the end of 2026.</p>
+
+                            <h4>Core Responsibilities</h4>
+                            <ul class="responsibility-list">
+                                <li><strong>Full-scale Test Stand Development:</strong> Design, manufacture and assemble
+                                    static fire infrastructure and support equipment</li>
+                                <li><strong>DAQ & Control:</strong> Integration of sensors, actuators, safety mechanisms
+                                    and real-time control software for test operations</li>
+                                <li><strong>Fuel Grain Manufacturing:</strong> Spin-casting paraffin wax-based fuels and
+                                    experimenting with additives to improve performance</li>
+                                <li><strong>Fluid Systems:</strong> Designing, building and testing high-pressure liquid
+                                    & gas systems with safe operation</li>
+                                <li><strong>Combustion Chamber Design:</strong> Thermo-fluid analysis and simulation of
+                                    chamber and nozzle performance</li>
+                                <li><strong>Modelling & Simulation:</strong> Development of analytical and computational
+                                    models to predict engine behaviour and guide design decisions</li>
+                            </ul>
+                        </div>
+                        <div class="subteam-block__image">
+                            <div class="placeholder-img" style="height: 100%;">Feature Image</div>
+                        </div>
+                    </div>
+                    <div class="subteam-gallery">
+                        <div class="gallery-placeholder">Propulsion Photo 1</div>
+                        <div class="gallery-placeholder">Propulsion Photo 2</div>
+                        <div class="gallery-placeholder">Propulsion Photo 3</div>
+                    </div>
+                </div>
+
+                <!-- Avionics Content -->
+                <div id="avionics" class="subteam-content">
+                    <div class="subteam-block">
+                        <div class="subteam-block__content">
+                            <h3>Avionics</h3>
+                            <p class="subteam-leads"><strong>Team Lead:</strong> Joshua Vaughan <br> <strong>Sub
+                                    Leads:</strong> Lachlan Power, Auriella Fisher, Nicholas Cotugno Morrison</p>
+
+                            <p>The Avionics team develops and integrates electronic systems for both the rocket and its
+                                ground support equipment. At the core of these systems is the ARES Compute Platform, a
+                                fully interconnected system spanning hardware design, embedded software, ICT
+                                infrastructure, and web development. The team is currently developing a 2nd generation
+                                in-house flight computer with complimenting web platform for real time control, and
+                                flight data visualisation.</p>
+
+                            <h4>Core Responsibilities</h4>
+                            <ul class="responsibility-list">
+                                <li><strong>Rocket Avionics:</strong> Develop and program embedded avionics systems,
+                                    including telemetry, radio communications, active aero controllers, data logging,
+                                    and power management systems.</li>
+                                <li><strong>Ground Station:</strong> Integrate ground support equipment and ICT
+                                    infrastructure with rocket avionics, and DSLR camera.</li>
+                                <li><strong>Data:</strong> Develop a Web interface for real time control, and flight
+                                    data visualisation tools, and develop existing airbrake control systems.</li>
+                            </ul>
+                        </div>
+                        <div class="subteam-block__image">
+                            <div class="placeholder-img" style="height: 100%;">Feature Image</div>
+                        </div>
+                    </div>
+                    <div class="subteam-gallery">
+                        <div class="gallery-placeholder">Avionics Photo 1</div>
+                        <div class="gallery-placeholder">Avionics Photo 2</div>
+                        <div class="gallery-placeholder">Avionics Photo 3</div>
+                    </div>
+                </div>
+
+                <!-- Recovery Content -->
+                <div id="recovery" class="subteam-content">
+                    <div class="subteam-block">
+                        <div class="subteam-block__content">
+                            <h3>Recovery</h3>
+                            <p class="subteam-leads"><strong>Team Leads:</strong> Caroline Berg, Jeet Bhandari</p>
+
+                            <p>The Recovery team aims to achieve the safe descent and retrieval of the rocket, from
+                                altitudes up to 30,000 feet. Currently, the team has developed a single-separation,
+                                dual-deployment scheme featuring a CO2 separation system, with a 3-ring release
+                                mechanism, and line cutters for precision ejection of the parachutes.</p>
+                            <p>Currently, the team is focusing heavily on designing and researching an improved recovery
+                                system. The new system will build on the existing foundation, concentrating on creating
+                                reliable and mechanically sound infrastructure for future rockets. Furthermore, we’re
+                                constantly improving our ability to manufacture components such as deployment bags, with
+                                a focus on creating in-house parachutes.</p>
+
+                            <h4>Core Responsibilities</h4>
+                            <ul class="responsibility-list">
+                                <li><strong>Mechanical System Design:</strong> CAD creation of systems such as line
+                                    cutters, CO2 ejection parts, and other flight-critical recovery components</li>
+                                <li><strong>Hands-on Fabrication:</strong> Sewing and creation of parachute and
+                                    deployment assemblies</li>
+                                <li><strong>Results Synthesis:</strong> MATLAB scripting and data analysis</li>
+                                <li><strong>Real-World Applications:</strong> Continual hands-on testing and field
+                                    deployment of recovery system</li>
+                            </ul>
+                        </div>
+                        <div class="subteam-block__image">
+                            <div class="placeholder-img" style="height: 100%;">Feature Image</div>
+                        </div>
+                    </div>
+                    <div class="subteam-gallery">
+                        <div class="gallery-placeholder">Recovery Photo 1</div>
+                        <div class="gallery-placeholder">Recovery Photo 2</div>
+                        <div class="gallery-placeholder">Recovery Photo 3</div>
+                    </div>
+                </div>
+
+                <!-- Payload Content -->
+                <div id="payload" class="subteam-content">
+                    <div class="subteam-block">
+                        <div class="subteam-block__content">
+                            <h3>Payload</h3>
+                            <p class="subteam-leads"><strong>Team Lead:</strong> Charlton Hammond</p>
+
+                            <p>The Payload team develops an experimental scientific payload that rides on the
+                                competition rocket, investigating technologies relevant to space applications.</p>
+                            <p>Previous payloads have included an award-winning investigation into the effects of high
+                                acceleration flight on bacteria using Raman spectroscopy, and creating a surgical
+                                robotic arm that can perform high-precision surgery under high acceleration flight using
+                                a quad-arm control mechanism.</p>
+
+                            <h4>Core Responsibilities</h4>
+                            <ul class="responsibility-list">
+                                <li><strong>Electronic Design:</strong> PCB development for sensor integration and power
+                                    management utilising Altium</li>
+                                <li><strong>Mechanical and Structural Design:</strong> Using CAD software to design,
+                                    prototype, and analyse the payload</li>
+                                <li><strong>Manufacturing and Testing:</strong> Including metal work, soldering and 3D
+                                    printing</li>
+                                <li><strong>Software Design:</strong> Writing code to communicate with and control the
+                                    various sensors and actuators, perform data processing, and wireless communication
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="subteam-block__image">
+                            <div class="placeholder-img" style="height: 100%;">Feature Image</div>
+                        </div>
+                    </div>
+                    <div class="subteam-gallery">
+                        <div class="gallery-placeholder">Payload Photo 1</div>
+                        <div class="gallery-placeholder">Payload Photo 2</div>
+                    </div>
+                </div>
+
+                <!-- Operations Content -->
+                <div id="operations" class="subteam-content">
+                    <div class="subteam-block">
+                        <div class="subteam-block__content">
+                            <h3>Operations & Logistics</h3>
+                            <p class="subteam-leads"><strong>Team Lead:</strong> Amelia Liu</p>
+
+                            <p>The Operations & Logistics sub-team drives the strategic coordination and operational
+                                execution of the team’s initiatives. This sub-team ensures that ARES operates
+                                efficiently, fosters external partnerships that are essential to the construction of the
+                                rocket, and effectively communicates the team’s endeavours and knowledge to relevant
+                                stakeholders.</p>
+
+                            <h4>Core Responsibilities</h4>
+                            <ul class="responsibility-list">
+                                <li><strong>Stakeholder and Partnership Engagement:</strong> Securing and maintaining
+                                    sponsorships with new and existing partners</li>
+                                <li><strong>Logistics Organisation:</strong> Planning logistics for travel and
+                                    competition entry</li>
+                                <li><strong>Internal Collaboration:</strong> Liaising with the Faculty of Engineering &
+                                    Information Technology</li>
+                                <li><strong>Merchandising:</strong> Designing and producing team merchandise</li>
+                                <li><strong>Videography and Marketing:</strong> Managing social media, filming, editing
+                                    videos, and creating promotional materials</li>
+                            </ul>
+                        </div>
+                        <div class="subteam-block__image">
+                            <div class="placeholder-img" style="height: 100%;">Feature Image</div>
+                        </div>
+                    </div>
+                    <div class="subteam-gallery">
+                        <div class="gallery-placeholder">Operations Photo 1</div>
+                        <div class="gallery-placeholder">Operations Photo 2</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+        <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__copyright">
+                <p>
+                    &copy;
+                    <script>document.write(new Date().getFullYear())</script>
+                    ARES Rocketry. All rights reserved.
+                </p>
+            </div>
+
+            <div class="footer__socials">
+                <a href="https://www.facebook.com/unimelbARES/" target="_blank" rel="noopener" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/aresunimelb/?hl=en" target="_blank" rel="noopener" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://au.linkedin.com/company/aresunimelb" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCSasWA_I84a9hVrnzslJ3YQ" target="_blank" rel="noopener" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="mailto:contact@aresrocketry.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+            <div class="footer__logo">
+                <img src="assets/ares-logo.png" alt="ARES Logo">
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function openSubteam(teamName) {
+            // Hide all content
+            var contents = document.getElementsByClassName("subteam-content");
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].classList.remove("active");
+            }
+            // Remove active class from all buttons
+            var buttons = document.getElementsByClassName("tab-btn");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+            // Show specific content
+            document.getElementById(teamName).classList.add("active");
+            // Add active class to clicked button
+            // Finding the button that called this function is tricky without passing 'this', 
+            // so we'll look for the button with the matching onclick text.
+            // A safer way is to loop and check.
+            var matchingButton = Array.from(buttons).find(b => b.getAttribute('onclick').includes(teamName));
+            if (matchingButton) matchingButton.classList.add("active");
+        }
+    </script>
+</body>
+
+</html>

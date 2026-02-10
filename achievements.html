@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements | ARES Rocketry</title>
+    <meta name="description" content="The history of ARES Rocketry and our achievements from 2019 to present.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="icon" href="assets/ares-logo.png" type="image/png">
+    <style>
+        .timeline-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        /* Solid line for past events */
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--color-primary) 0%, var(--color-secondary) 100%);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+            box-shadow: 0 0 10px rgba(0, 96, 169, 0.3);
+        }
+
+        .timeline-entry {
+            padding: 15px 50px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        /* Timeline dot for past events */
+        .timeline-entry::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            background-color: var(--color-white);
+            border: 3px solid var(--color-primary);
+            top: 24px;
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 0 0 4px rgba(0, 96, 169, 0.2);
+        }
+
+        /* Future events styling */
+        .timeline-entry.future {
+            opacity: 0.85;
+        }
+
+        .timeline-entry.future::after {
+            border: 3px dashed var(--color-secondary);
+            background-color: transparent;
+        }
+
+        .timeline-entry.future .content {
+            border-left: 3px solid var(--color-secondary);
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .content {
+            padding: 24px 32px;
+            background-color: white;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .content:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .content h3 {
+            color: var(--color-primary);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .content p {
+            line-height: 1.6;
+            color: var(--color-text-main);
+        }
+
+        @media screen and (max-width: 600px) {
+            .timeline-container::after {
+                left: 31px;
+            }
+
+            .timeline-entry {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-entry::after {
+                left: 21px;
+            }
+
+            .left::after,
+            .right::after {
+                left: 21px;
+            }
+
+            .right {
+                left: 0%;
+            }
+
+            .left::before,
+            .right::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="header">
+        <div class="header__container">
+            <a href="index.html" class="logo">
+                <img src="assets/ares-logo.png" alt="ARES Rocketry Logo" class="logo__img">
+            </a>
+
+            <button class="nav-toggle" aria-label="Toggle navigation"><span class="hamburger"></span></button>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="about.html" class="nav__link">About Us</a></li>
+                    <li class="nav__item"><a href="subteams.html" class="nav__link">Team</a></li>
+                    <li class="nav__item"><a href="sponsors.html" class="nav__link">Sponsors</a></li>
+                    <li class="nav__item"><a href="achievements.html" class="nav__link active">History</a></li>
+                    <li class="nav__item"><a href="news.html" class="nav__link">News</a></li>
+                    <li class="nav__item"><a href="gallery.html" class="nav__link">Gallery</a></li>
+                    <li class="nav__item"><a href="join.html" class="nav__link btn btn--primary">Join Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" style="padding-top: 120px;">
+            <div class="container">
+                <h2 class="section__title">The History of ARES</h2>
+
+                <div class="timeline-container">
+                    <div class="timeline-entry left">
+                        <div class="content">
+                            <h3>2019</h3>
+                            <p>ARES is established and plans to participate in the Australian Universities Rocketry
+                                Competition (AURC). Club activity is largely stalled due to the COVID-19 pandemic, but
+                                continues researching for future development.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-entry right">
+                        <div class="content">
+                            <h3>2021</h3>
+                            <p>ARES launches our first team rocket ‘Big Blue.’</p>
+                        </div>
+                    </div>
+                    <div class="timeline-entry left">
+                        <div class="content">
+                            <h3>2022</h3>
+                            <p>ARES attends the Spaceport America Cup (SAC) competition in New Mexico, Texas with our
+                                10,000ft rocket ‘Phobos.’ We win the <strong>Charles Hoult Award for Modelling &
+                                    Simulation</strong> out of 110 teams from across the world.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-entry right">
+                        <div class="content">
+                            <h3>2023</h3>
+                            <p>ARES launches our first-ever 30,000ft rocket at SAC. We presented at the 2023 Podium
+                                Session and showed our work on the 'SRAD future-proof flight computer'.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-entry left">
+                        <div class="content">
+                            <h3>2024</h3>
+                            <p>ARES launches our award-winning rocket Florence at SAC. Florence reaches an apogee of
+                                29,782 feet.</p>
+                            <p><strong>Awards:</strong> 2nd Place (30k COTS), 4th Place Overall (out of 152 teams), 3rd
+                                Place SDL Payload Competition.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-entry right">
+                        <div class="content">
+                            <h3>2025</h3>
+                            <p>Building on the successes of Florence, ARES launched their newest rocket to date
+                                ‘Lemaire’ at IREC in Spaceport Midland, Texas. Lemaire reached an inertial apogee of
+                                30,001ft and an altimeter apogee of 28,460ft. The rocket touched-down under drogue, and
+                                was able to be recovered with minimal damage.</p>
+                            <p>After an exciting cycle, ARES has decided to switch to a two-year project cycle, aiming
+                                to develop a hybrid engine rocket.</p>
+                        </div>
+                    </div>
+
+                    <!-- Future Events -->
+                    <div class="timeline-entry left future">
+                        <div class="content">
+                            <h3>Mid 2026</h3>
+                            <p><strong>Planned:</strong> Hotfire testing of hybrid rocket engine at designated test
+                                facility.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-entry right future">
+                        <div class="content">
+                            <h3>Late 2026</h3>
+                            <p><strong>Planned:</strong> Static fire testing to validate full engine performance and
+                                integration.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-entry left future">
+                        <div class="content">
+                            <h3>October 2026</h3>
+                            <p><strong>Planned:</strong> Launch at Tolarno Station with hybrid engine rocket.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__copyright">
+                <p>
+                    &copy;
+                    <script>document.write(new Date().getFullYear())</script>
+                    ARES Rocketry. All rights reserved.
+                </p>
+            </div>
+
+            <div class="footer__socials">
+                <a href="https://www.facebook.com/unimelbARES/" target="_blank" rel="noopener" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/aresunimelb/?hl=en" target="_blank" rel="noopener" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://au.linkedin.com/company/aresunimelb" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCSasWA_I84a9hVrnzslJ3YQ" target="_blank" rel="noopener" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="mailto:contact@aresrocketry.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+            <div class="footer__logo">
+                <img src="assets/ares-logo.png" alt="ARES Logo">
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
