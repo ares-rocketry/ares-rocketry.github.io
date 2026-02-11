@@ -1076,3 +1076,219 @@ p {
 .delay-500 {
     animation-delay: 0.5s;
 }
+
+/* History Timeline Styles (Migrated from projects.html) */
+.history-timeline-container {
+    position: relative;
+    max-width: 1100px;
+    /* Increased from 900px for larger images */
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.history-timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    /* Smooth gradient transition to light blue for future section */
+    background: linear-gradient(to bottom, var(--color-primary) 45%, var(--color-secondary) 100%);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1.5px;
+    box-shadow: 0 0 10px rgba(0, 96, 169, 0.3);
+}
+
+.history-timeline-entry {
+    padding: 15px 50px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.history-timeline-entry::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 25px;
+    /* Height for curve */
+    background-color: transparent;
+    /* Curved line logic */
+    border-bottom: 3px solid var(--color-primary);
+    top: 15px;
+    /* Positioned so bottom edge aligns approx with title (~40px from top) */
+    z-index: 2;
+    box-shadow: none;
+}
+
+.history-timeline-entry.future {
+    opacity: 0.85;
+}
+
+.history-timeline-entry.future::after {
+    background-color: transparent;
+    border-bottom: 3px dashed var(--color-secondary);
+    border-right: 3px dashed var(--color-secondary);
+    /* Needs to match curve side */
+    height: 25px;
+}
+
+/* Specific borders for curves */
+.history-timeline-entry.left::after {
+    right: -1.5px;
+    /* Half of center line width (3px) to align perfectly */
+    border-right: 3px solid var(--color-primary);
+    border-bottom-right-radius: 20px;
+    border-left: none;
+    border-top: none;
+}
+
+.history-timeline-entry.right::after {
+    left: -1.5px;
+    /* Half of center line width (3px) to align perfectly */
+    border-left: 3px solid var(--color-primary);
+    border-bottom-left-radius: 20px;
+    border-right: none;
+    border-top: none;
+}
+
+/* Future lines dashed */
+.history-timeline-entry.future.left::after {
+    border-right: 3px dashed var(--color-secondary);
+    border-bottom: 3px dashed var(--color-secondary);
+}
+
+.history-timeline-entry.future.right::after {
+    border-left: 3px dashed var(--color-secondary);
+    border-bottom: 3px dashed var(--color-secondary);
+}
+
+.history-timeline-entry.future .history-content {
+    border-left: none;
+    /* Removed as per request */
+}
+
+.history-timeline-entry.left {
+    left: 0;
+    text-align: right;
+    padding-right: 70px;
+    /* Increase padding to accommodate curve */
+}
+
+.history-timeline-entry.right {
+    left: 50%;
+    padding-left: 70px;
+    /* Increase padding to accommodate curve */
+}
+
+/* Remove the triangle pointers if lines go directly to box */
+.history-timeline-entry.left::before,
+.history-timeline-entry.right::before {
+    display: none;
+}
+
+/* Timeline Images */
+.timeline-image {
+    padding: 15px 50px;
+    position: relative;
+    background-color: transparent;
+    width: 50%;
+    margin-top: -150px;
+    /* Overlap with previous entry */
+    z-index: 2;
+}
+
+.timeline-image.left {
+    left: 0;
+}
+
+.timeline-image.right {
+    left: 50%;
+}
+
+.timeline-image img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    max-height: 600px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+}
+
+.timeline-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    z-index: 3;
+}
+
+/* Update mobile styles for lines */
+@media screen and (max-width: 600px) {
+    .history-timeline-container::after {
+        left: 31px;
+    }
+
+    .history-timeline-entry {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+        text-align: left;
+        /* Reset text align */
+    }
+
+    .history-timeline-entry::after {
+        left: 31px;
+        width: 40px;
+        height: 25px;
+        /* Reset to standard curve for left-aligned mobile */
+        right: auto;
+        border-left: 3px solid var(--color-primary);
+        border-bottom-left-radius: 20px;
+        border-right: none;
+
+        /* But wait, main line is on left. Content is on right. */
+        /* Curve should go from Line (Left) to Content (Right). */
+        /* So it needs border-left (vertical) and border-bottom (horizontal). */
+        /* And border-bottom-left-radius. */
+    }
+
+    .history-timeline-entry.left::after,
+    .history-timeline-entry.right::after {
+        left: 31px;
+        right: auto;
+        border-left: 3px solid var(--color-primary);
+        border-bottom-left-radius: 20px;
+        border-right: none;
+        border-bottom-right-radius: 0;
+    }
+
+    .history-timeline-entry.future.left::after,
+    .history-timeline-entry.future.right::after {
+        border-left: 3px dashed var(--color-secondary);
+        border-bottom: 3px dashed var(--color-secondary);
+        border-right: none;
+    }
+
+    .history-timeline-entry.right {
+        left: 0%;
+    }
+
+    /* Hide triangles on mobile too */
+    .history-timeline-entry.left::before,
+    .history-timeline-entry.right::before {
+        display: none;
+    }
+
+    .timeline-image {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+        left: 0%;
+    }
+
+    .timeline-image.right {
+        left: 0%;
+    }
+}
