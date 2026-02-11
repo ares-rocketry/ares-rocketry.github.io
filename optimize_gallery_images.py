@@ -4,10 +4,10 @@ import subprocess
 import re
 
 # Configuration
-GALLERY_HTML_PATH = "gallery.html"
+GALLERY_HTML_PATHS = ["gallery.html", "projects.html", "about.html"]
 ASSETS_DIR = "assets/ARES Photos"
 THUMBS_DIR = "assets/thumbnails"
-THUMB_WIDTH = 600
+THUMB_WIDTH = 800
 
 
 def run_command(cmd):
@@ -29,15 +29,7 @@ def optimize_images():
         os.makedirs(THUMBS_DIR)
         print(f"Created thumbnails directory: {THUMBS_DIR}")
 
-    # Read original gallery.html content
-    try:
-        with open(GALLERY_HTML_PATH, "r") as f:
-            html_content = f.read()
-    except FileNotFoundError:
-        print(f"Error: {GALLERY_HTML_PATH} not found.")
-        return
-
-    # Find all images in assets/ARES Photos
+    # Generate thumbnails for all images
     image_replacements = {}
 
     # Walk through the assets directory
@@ -48,8 +40,6 @@ def optimize_images():
                 rel_path = os.path.relpath(full_path, start=".")
 
                 # Create corresponding thumbnail path
-                # Use flat structure or mirror? Flat structure easier for now but mirror might be safer for collisions.
-                # Let's mirror structure within thumbnails dir to avoid collisions.
                 rel_dir = os.path.relpath(root, start=ASSETS_DIR)
                 if rel_dir == ".":
                     dest_dir = THUMBS_DIR
@@ -61,28 +51,19 @@ def optimize_images():
 
                 thumb_path = os.path.join(dest_dir, file)
 
-                # Check if thumbnail exists
-                if not os.path.exists(thumb_path):
-                    print(f"Generating thumbnail for: {rel_path}...")
-                    # Generate thumbnail using sips (macOS)
-                    # Use --resampleWidth for width-based resize maintaining aspect ratio
-                    cmd = [
-                        "sips",
-                        "-Z",
-                        str(THUMB_WIDTH),
-                        full_path,
-                        "--out",
-                        thumb_path,
-                    ]
-                    run_command(cmd)
+                # Check if thumbnail exists or regenerate
+                # We'll regenerate if file size is 0 or if explicitly requested (by deleting folder beforehand)
+                # But here we assume we want to update width to 800.
+                # Simplest check: check if width matches 800? Hard with just python.
+                # Let's just always overwrite or rely on user clearing cache.
+                # For this run, let's overwrite to ensure 800px update.
+                print(f"Processing thumbnail for: {rel_path}...")
+                cmd = ["sips", "-Z", str(THUMB_WIDTH), full_path, "--out", thumb_path]
+                run_command(cmd)
 
                 # Calculate relative path for HTML src
                 thumb_rel_path = os.path.relpath(thumb_path, start=".")
 
-                # Store replacement: original path -> thumbnail path
-                # HTML paths might be URL encoded or just relative strings
-                # The generate_gallery.py used str(rel_path) which uses OS separators.
-                # Standardize to forward slashes for HTML
                 html_orig = rel_path.replace(os.path.sep, "/")
                 html_thumb = thumb_rel_path.replace(os.path.sep, "/")
 
@@ -93,44 +74,48 @@ def optimize_images():
                 html_thumb_encoded = html_thumb.replace(" ", "%20")
                 image_replacements[html_orig_encoded] = html_thumb_encoded
 
-    # Update gallery.html
-    new_html = html_content
+    # Update HTML files
+    for html_path in GALLERY_HTML_PATHS:
+        try:
+            with open(html_path, "r") as f:
+                html_content = f.read()
+        except FileNotFoundError:
+            print(f"Error: {html_path} not found.")
+            continue
 
-    # We need to be careful. We want to replace src="..." but NOT the onclick argument.
-    # The onclick argument points to the full resolution image.
-    # Pattern: <img src="ORIGINAL" ...> -> <img src="THUMBNAIL" ...>
+        new_html = html_content
 
-    for orig, thumb in image_replacements.items():
-        # Match src="orig"
-        # We use simple string replacement but targeted
-        # To avoid replacing the onclick part, we can rely on the fact that onclick is usually before or after src
-        # But a global replace of `src="orig"` to `src="thumb"` is safe because onclick uses `onclick="openLightbox('orig')"`
-        # (single quotes in my generation script basically, but let's check).
+        for orig, thumb in image_replacements.items():
+            # Match src="orig"
+            # We want to replace src but NOT create broken links if user clicks on thumbnails?
+            # Wait, `projects.html` and `about.html` might rely on `src` for full-res display if no lightbox.
+            # `projects.html` has no lightbox script?
+            # Oh, `projects.html` has logic?
+            # actually `projects.html` has `class="project-gallery"`.
+            # If I replace `src` with thumb, the image is smaller.
+            # If user clicks it? `projects.html` has no lightbox script.
+            # The images just sit there. `transform: scale(1.05)` on hover.
+            # So replacing `src` with thumbnail is SAFE because there is no "click to expand".
+            # Perfect.
 
-        # Check how it was generated:
-        # <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/...')">
-        #     <img src="assets/ARES Photos/..." alt="..." loading="lazy">
-        # </div>
+            # For hero images? Same.
 
-        # So we ONLY want to replace the `src="..."` part.
+            target = f'src="{orig}"'
+            replacement = f'src="{thumb}"'
+            if target in new_html:
+                new_html = new_html.replace(target, replacement)
 
-        target = f'src="{orig}"'
-        replacement = f'src="{thumb}"'
-        if target in new_html:
-            new_html = new_html.replace(target, replacement)
-            # print(f"Replaced {target} with {replacement}")
+            # Try encoded version if not found
+            target_enc = f'src="{orig.replace(" ", "%20")}"'
+            replacement_enc = f'src="{thumb.replace(" ", "%20")}"'
+            if target_enc in new_html and target_enc != target:
+                new_html = new_html.replace(target_enc, replacement_enc)
 
-        # Try encoded version if not found
-        target_enc = f'src="{orig.replace(" ", "%20")}"'
-        replacement_enc = f'src="{thumb.replace(" ", "%20")}"'
-        if target_enc in new_html and target_enc != target:  # avoid double replace
-            new_html = new_html.replace(target_enc, replacement_enc)
+        # Write updated HTML
+        with open(html_path, "w") as f:
+            f.write(new_html)
 
-    # Write updated HTML
-    with open(GALLERY_HTML_PATH, "w") as f:
-        f.write(new_html)
-
-    print(f"Successfully updated {GALLERY_HTML_PATH}")
+        print(f"Successfully updated {html_path}")
 
 
 if __name__ == "__main__":
