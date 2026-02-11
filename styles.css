@@ -1228,6 +1228,7 @@ p {
 @media screen and (max-width: 600px) {
     .history-timeline-container::after {
         left: 31px;
+        margin-left: 0;
     }
 
     .history-timeline-entry {
@@ -1286,6 +1287,8 @@ p {
         padding-left: 70px;
         padding-right: 25px;
         left: 0%;
+        margin-top: 0;
+        margin-bottom: 30px;
     }
 
     .timeline-image.right {
