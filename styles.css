@@ -66,6 +66,17 @@ a {
     transition: color 0.2s ease;
 }
 
+.text-link {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.text-link:hover {
+    color: var(--color-secondary);
+}
+
 ul {
     list-style: none;
 }
@@ -395,6 +406,56 @@ p {
 @media (max-width: 600px) {
     .grid-4-col {
         grid-template-columns: 1fr;
+    }
+}
+
+.leadership-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: 60px;
+}
+
+.leadership-grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-md);
+    width: 100%;
+}
+
+.leadership-grid .team-card {
+    flex: 0 1 calc((100% - 2 * var(--spacing-md)) / 3);
+    max-width: calc((100% - 2 * var(--spacing-md)) / 3);
+}
+
+.leadership-grid .team-card__image-placeholder {
+    aspect-ratio: 1 / 1;
+}
+
+.leadership-grid .team-card__name {
+    font-size: 1rem;
+    margin: 12px 10px 4px 10px;
+}
+
+.leadership-grid .team-card__role {
+    font-size: 0.75rem;
+    margin: 0 10px 14px 10px;
+    letter-spacing: 0.3px;
+}
+
+@media (max-width: 600px) {
+    .leadership-grid .team-card {
+        flex: 0 1 calc((100% - var(--spacing-md)) / 2);
+        max-width: calc((100% - var(--spacing-md)) / 2);
+    }
+}
+
+@media (max-width: 400px) {
+    .leadership-grid .team-card {
+        flex: 0 1 100%;
+        max-width: 100%;
     }
 }
 
