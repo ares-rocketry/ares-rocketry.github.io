@@ -21,11 +21,77 @@
     <!-- Favicon -->
     <link rel="icon" href="../assets/logos/ARES LOGO-WHITE-BLUE.png" type="image/png">
     <style>
-        /* Projects Specific Styles */
-        .projects-header {
+        /* CHANGE: Image hero banner for Mission History (replaces plain white header).
+           Title + subtitle centred as a group; vertically centred in banner. */
+        .projects-banner {
+            position: relative;
+            padding: 100px 0;
+            background: url('../assets/ARES%20Photos/Deimos/DeimosStand.png') center center / cover no-repeat;
+            min-height: 340px;
+            display: flex;
+            align-items: center;
+        }
+
+        .projects-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to right,
+                rgba(0, 15, 70, 0.88) 0%,
+                rgba(0, 15, 70, 0.55) 45%,
+                rgba(0, 15, 70, 0.2) 100%
+            );
+        }
+
+        .projects-banner .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .projects-banner__content {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .projects-banner__title {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            line-height: 1.1;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-md);
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .projects-banner__title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: var(--color-secondary);
+            margin-top: var(--spacing-sm);
+        }
+
+        .projects-banner__subtitle {
+            color: rgba(255, 255, 255, 0.92);
+            font-size: 1.15rem;
+            max-width: 540px;
             text-align: center;
-            padding: 80px 20px 40px;
-            background: rgba(0, 15, 70, 0.3);
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .projects-banner {
+                padding: 90px 0;
+                min-height: 280px;
+            }
+
+            .projects-banner__title {
+                font-size: 2.25rem;
+            }
         }
 
         .timeline-nav {
@@ -240,16 +306,18 @@
     </header>
 
     <main>
-        <section class="banner" style="padding-top: 120px; padding-bottom: 40px; text-align: center;">
+        <section class="projects-banner">
             <div class="container">
-                <h1 class="page-title">Mission History</h1>
-                <p>A timeline of our engineering journey.</p>
+                <div class="projects-banner__content">
+                    <h1 class="projects-banner__title">Mission History</h1>
+                    <p class="projects-banner__subtitle">A timeline of our engineering journey.</p>
+                </div>
             </div>
         </section>
 
         <section class="section projects">
             <div class="container">
-                <div class="timeline-nav">
+                <div class="timeline-nav animate-on-scroll">
                     <div class="timeline-item active" onclick="showProject('odyssey')">Odyssey</div>
                     <div class="timeline-item" onclick="showProject('lemaire')">Lemaire</div>
                     <div class="timeline-item" onclick="showProject('florence')">Florence</div>
@@ -261,7 +329,7 @@
                 <div class="project-display">
                     <!-- Odyssey -->
                     <div id="odyssey" class="project-content active">
-                        <div class="project-hero">
+                        <div class="project-hero animate-on-scroll">
                             <img src="../assets/thumbnails/Propulsion/propulsion_1.png" alt="Project Odyssey Hotfire">
                             <div class="project-hero-overlay">
                                 <span class="project-year">Current Mission (2027 Target)</span>
@@ -275,8 +343,10 @@
                             technological and operational abilities.</p>
                         <p>Alongside the team's new hybrid rocket engine, named Genesis, ARES is developing multiple
                             novel technologies such as side-hatch deployment, improved retractable rail guides and air
-                            brakes, and a comprehensive telemetry network with custom transfer protocol.</p>
-                        <div class="project-gallery">
+                            brakes, and a comprehensive telemetry network with custom transfer protocol. ARES plans to
+                            host an initial test of Odyssey in late 2026 at the Australian Universities Rocket
+                            Competition in New South Wales.</p>
+                        <div class="project-gallery animate-on-scroll">
                             <img src="../assets/thumbnails/Propulsion/test_stand.jpeg" alt="Hybrid test stand">
                             <img src="../assets/thumbnails/Propulsion/hotfire_side.jpeg" alt="Hotfire side view">
                             <img src="../assets/thumbnails/Propulsion/DAQ_highres.jpeg" alt="Data acquisition system">
@@ -285,7 +355,7 @@
 
                     <!-- Lemaire -->
                     <div id="lemaire" class="project-content">
-                        <div class="project-hero">
+                        <div class="project-hero animate-on-scroll">
                             <img src="../assets/thumbnails/Teams Photos/Lemaire.JPG" alt="Project Lemaire Team">
                             <div class="project-hero-overlay">
                                 <span class="project-year">IREC 2025</span>
@@ -304,7 +374,7 @@
                             acquisition system. Lemaire was launched to an altitude of 28,460 ft, with a recovery system
                             failure leading to some airframe damage. Lemaire placed 5th in its category and 38th overall
                             out of 145 teams.</p>
-                        <div class="project-gallery">
+                        <div class="project-gallery animate-on-scroll">
                             <img src="../assets/thumbnails/lemaire_launch_team.JPG" alt="Lemaire launch team">
                             <img src="../assets/thumbnails/Teams Photos/LemaireTeam.JPG" alt="Lemaire team photo">
                             <img src="../assets/thumbnails/integrating_rail.jpeg" alt="Rocket integration">
@@ -313,7 +383,7 @@
 
                     <!-- Florence -->
                     <div id="florence" class="project-content">
-                        <div class="project-hero">
+                        <div class="project-hero animate-on-scroll">
                             <img src="../assets/thumbnails/lemwhitesands.JPG" alt="Project Florence">
                             <div class="project-hero-overlay">
                                 <span class="project-year">IREC 2024</span>
@@ -337,7 +407,7 @@
                             2nd in the 30,000 ft COTS category and 4th overall out of 152 teams.
                         </p>
 
-                        <div class="project-gallery">
+                        <div class="project-gallery animate-on-scroll">
                             <img src="../assets/thumbnails/florence_flight.jpeg" alt="Florence in flight">
                             <img src="../assets/thumbnails/florence_awards.jpeg" alt="Florence awards ceremony">
                             <img src="../assets/thumbnails/florence_team_Sac.jpeg" alt="Florence integration">
@@ -346,7 +416,7 @@
 
                     <!-- Deimos -->
                     <div id="deimos" class="project-content">
-                        <div class="project-hero">
+                        <div class="project-hero animate-on-scroll">
                             <img src="../assets/thumbnails/Deimos/Deimos_dessert.jpeg" alt="Project Deimos in desert">
                             <div class="project-hero-overlay">
                                 <span class="project-year">IREC 2023</span>
@@ -364,7 +434,7 @@
                             catastrophic failure at an altitude of 7,000 ft which caused its airframe to be destroyed.
                             ARES placed 9th for design and build quality, but the team's flight performance score led to
                             an overall rank of 74 out of 119 teams.</p>
-                        <div class="project-gallery">
+                        <div class="project-gallery animate-on-scroll">
                             <img src="../assets/thumbnails/Deimos/deimos_team.JPG" alt="Deimos team">
                             <img src="../assets/thumbnails/Deimos/Deimos_night_integration.jpeg"
                                 alt="Night integration">
@@ -373,7 +443,7 @@
 
                     <!-- Phobos -->
                     <div id="phobos" class="project-content">
-                        <div class="project-hero">
+                        <div class="project-hero animate-on-scroll">
                             <img src="../assets/thumbnails/SAC22.JPG" alt="Phobos at SAC 2022">
                             <div class="project-hero-overlay">
                                 <span class="project-year">IREC 2022</span>
@@ -394,7 +464,7 @@
                             teams, a commendable effort for a first competition. Additionally, ARES was awarded the
                             Charles Hoult Award for Modelling and Simulation for the team's work analysing and
                             manufacturing Phobos' aerodynamic transition.</p>
-                        <div class="project-gallery">
+                        <div class="project-gallery animate-on-scroll">
                             <img src="../assets/thumbnails/Deimos/test_deimos.jpeg" alt="IREC Team photo">
                             <img src="../assets/thumbnails/SAC.jpeg" alt="SAC launch">
                         </div>
@@ -402,7 +472,7 @@
 
                     <!-- Big Blue -->
                     <div id="bigblue" class="project-content">
-                        <div class="project-hero">
+                        <div class="project-hero animate-on-scroll">
                             <img src="../assets/thumbnails/bigBlueLaunch.jpg" alt="Big Blue rocket">
                             <div class="project-hero-overlay">
                                 <span class="project-year">Serpentine, Victoria 2022</span>
@@ -416,7 +486,7 @@
                         <p>Big Blue, whilst a short project, paved the way for Project Phobos and all of ARES'
                             competitions rockets to follow. The rocket stands proudly on display next to its successors
                             in ARES' workshop as a reminder of how far the team has come.</p>
-                        <div class="project-gallery">
+                        <div class="project-gallery animate-on-scroll">
                             <img src="../assets/thumbnails/bigBlueFlight.jpg" alt="Big Blue in flight">
                             <img src="../assets/thumbnails/bigBlueteam.jpg" alt="Big Blue team">
                         </div>
@@ -476,6 +546,7 @@
             document.getElementById(id).classList.add('active');
             // Add active class to clicked nav item
             event.currentTarget.classList.add('active');
+            if (window.refreshScrollReveal) window.refreshScrollReveal();
         }
     </script>
 </body>

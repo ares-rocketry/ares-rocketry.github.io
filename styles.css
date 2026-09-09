@@ -102,17 +102,19 @@ h1 {
 h2 {
     font-size: 2.5rem;
     text-align: center;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding-bottom: var(--spacing-sm);
 }
 
 h2::after {
     content: '';
-    display: block;
     width: 60px;
     height: 3px;
     background: var(--color-secondary);
-    margin: var(--spacing-sm) auto 0;
+    margin-top: var(--spacing-sm);
+    flex-shrink: 0;
 }
 
 p {
@@ -314,6 +316,17 @@ p {
 .btn--outline:hover {
     background: var(--color-white);
     color: var(--color-primary);
+}
+
+.btn--outline-dark {
+    background: transparent;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn--outline-dark:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
 }
 
 /* Hero Section */
@@ -548,14 +561,7 @@ p {
 /* Join Section */
 .join {
     background: var(--color-white);
-    padding-top: 120px;
 }
-
-.join .section__title {
-    color: var(--color-primary);
-    margin-bottom: 30px;
-}
-
 
 /* Join Page Styles */
 .join__card {
@@ -578,6 +584,19 @@ p {
     margin-top: 40px;
     margin-bottom: 20px;
     font-size: 1.8rem;
+}
+
+.join__card a:not(.btn),
+.card.glass-card a:not(.btn) {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: 600;
+}
+
+.join__card a:not(.btn):hover,
+.card.glass-card a:not(.btn):hover {
+    color: var(--color-secondary);
 }
 
 .recruitment-steps {
@@ -923,55 +942,105 @@ p {
 }
 
 /* --- Gallery Styles --- */
-.gallery-container {
-    column-count: 4;
-    column-gap: 20px;
-    padding: 20px 0;
+.gallery-carousel {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 0 40px;
 }
 
-@media (max-width: 1200px) {
-    .gallery-container {
-        column-count: 3;
-    }
-}
-
-@media (max-width: 800px) {
-    .gallery-container {
-        column-count: 2;
-    }
-}
-
-@media (max-width: 500px) {
-    .gallery-container {
-        column-count: 1;
-    }
-}
-
-.gallery-item {
-    break-inside: avoid;
-    margin-bottom: 20px;
+.gallery-carousel__viewport {
     position: relative;
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.gallery-carousel__slide {
+    flex: 1;
+    margin: 0;
+    background: var(--color-bg-light);
+    border-radius: 12px;
     overflow: hidden;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
 }
 
-.gallery-item img {
+.gallery-carousel__slide img {
     width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.5s ease;
+    height: 420px;
+    object-fit: contain;
+    background: #1a1a2e;
+    cursor: zoom-in;
 }
 
-.gallery-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+.gallery-carousel__caption {
+    padding: var(--spacing-md) var(--spacing-lg);
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    margin: 0;
+    background: var(--color-white);
 }
 
-.gallery-item:hover img {
-    transform: scale(1.03);
+.gallery-carousel__nav {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--color-primary);
+    background: var(--color-white);
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.gallery-carousel__nav:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.gallery-carousel__nav:active {
+    transform: scale(0.95);
+}
+
+.gallery-carousel__meta {
+    text-align: center;
+    margin: var(--spacing-lg) 0 var(--spacing-md);
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    .gallery-carousel__viewport {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .gallery-carousel__slide {
+        grid-column: 1 / -1;
+        min-height: 280px;
+        width: 100%;
+    }
+
+    .gallery-carousel__slide img {
+        height: 280px;
+    }
+
+    .gallery-carousel__nav {
+        width: 100%;
+        border-radius: 8px;
+        height: 44px;
+    }
 }
 
 /* Lightbox styles */
@@ -1048,7 +1117,7 @@ p {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(24px);
     }
 
     to {
@@ -1059,13 +1128,22 @@ p {
 
 .animate-on-scroll {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transform: translateY(24px);
+    transition-property: opacity, transform;
+    transition-duration: 0.8s;
+    transition-timing-function: ease-out;
 }
 
 .animate-on-scroll.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+.team-card.animate-on-scroll,
+.sponsor-card.animate-on-scroll {
+    transition-property: opacity, transform, box-shadow;
+    transition-duration: 0.8s, 0.8s, 0.3s;
+    transition-timing-function: ease-out, ease-out, ease;
 }
 
 .hero-animate {
@@ -1088,55 +1166,22 @@ p {
     transition-delay: 0.3s;
 }
 
-/* Animations */
-.animate-on-scroll.fadeInUp {
-    animation: fadeInUp 0.8s ease-out forwards;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.animate-on-scroll {
-    opacity: 0;
-    /* Initially hidden */
-}
-
-.animate-on-scroll.visible {
-    animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.hero-animate {
-    opacity: 0;
-    animation: fadeInUp 0.8s ease-out both;
-}
-
-.delay-100 {
-    animation-delay: 0.1s;
-}
-
-.delay-200 {
-    animation-delay: 0.2s;
-}
-
-.delay-300 {
-    animation-delay: 0.3s;
-}
-
 .delay-400 {
     animation-delay: 0.4s;
+    transition-delay: 0.4s;
 }
 
 .delay-500 {
     animation-delay: 0.5s;
+    transition-delay: 0.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-on-scroll {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }
 
 /* History Timeline Styles (Migrated from projects.html) */

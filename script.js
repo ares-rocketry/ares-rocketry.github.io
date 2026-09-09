@@ -97,22 +97,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 2. Scroll Animations (Intersection Observer)
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15 // Trigger when 15% of element is visible
-    };
+    // 2. Scroll reveal — fade-in on scroll for elements with .animate-on-scroll
+    // Call window.refreshScrollReveal() after tab switches (Team/Projects) to re-observe hidden content.
+    let scrollRevealObserver = null;
 
-    const scrollObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Animate only once
-            }
+    function initScrollReveal() {
+        if (!scrollRevealObserver) {
+            scrollRevealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '0px 0px -40px 0px',
+                threshold: 0.1
+            });
+        }
+
+        document.querySelectorAll('.animate-on-scroll:not(.visible)').forEach(el => {
+            scrollRevealObserver.observe(el);
         });
-    }, observerOptions);
+    }
 
-    const scrollElements = document.querySelectorAll('.animate-on-scroll');
-    scrollElements.forEach(el => scrollObserver.observe(el));
+    initScrollReveal();
+    window.refreshScrollReveal = initScrollReveal;
 });
