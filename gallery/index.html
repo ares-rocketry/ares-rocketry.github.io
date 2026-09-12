@@ -42,332 +42,33 @@
     </header>
 
     <main>
+        <!-- CHANGE: Replaced vertical image grid with carousel + lightbox (see script below) -->
         <section class="section" style="padding-top: 120px;">
             <div class="container">
-                <h2 class="section__title">Gallery</h2>
-                <p style="text-align: center; margin-bottom: 30px; font-size: 1.2rem;">A little peek into life in
+                <h2 class="section__title animate-on-scroll">Gallery</h2>
+                <p class="animate-on-scroll delay-100" style="text-align: center; margin-bottom: 30px; font-size: 1.2rem;">A little peek into life in
                     ARES...</p>
-                <div class="gallery-container">
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/3rockets.JPG')">
-                        <img src="../assets/thumbnails/3rockets.JPG" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item"
-                        onclick="openLightbox('assets/ARES Photos/Aerostructures/Unimelb closeup.JPG')">
-                        <img src="../assets/thumbnails/Aerostructures/Unimelb closeup.JPG" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item"
-                        onclick="openLightbox('assets/ARES Photos/Aerostructures/aerostructures_2.jpg')">
-                        <img src="../assets/thumbnails/Aerostructures/aerostructures_2.jpg" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Aerostructures/close_up.jpeg')">
-                        <img src="../assets/thumbnails/Aerostructures/close_up.jpeg" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Aerostructures/machined.jpeg')">
-                        <img src="../assets/thumbnails/Aerostructures/machined.jpeg" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Aerostructures/mock_int.JPG')">
-                        <img src="../assets/thumbnails/Aerostructures/mock_int.JPG" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Aerostructures/shinyCAD.png')">
-                        <img src="../assets/thumbnails/Aerostructures/shinyCAD.png" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Avionics/antenna_willB.jpeg')">
-                        <img src="../assets/thumbnails/Avionics/antenna_willB.jpeg" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Avionics/avionicsSAC22.JPG')">
-                        <img src="../assets/thumbnails/Avionics/avionicsSAC22.JPG" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Avionics/avionics_2.jpg')">
-                        <img src="../assets/thumbnails/Avionics/avionics_2.jpg" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Avionics/avionics_3.jpg')">
-                        <img src="../assets/thumbnails/Avionics/avionics_3.jpg" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item"
-                        onclick="openLightbox('assets/ARES Photos/Avionics/avionics_mock_int.JPG')">
-                        <img src="../assets/thumbnails/Avionics/avionics_mock_int.JPG" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Avionics/irecAvionics.JPG')">
-                        <img src="../assets/thumbnails/Avionics/irecAvionics.JPG" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Deimos/DeimosStand.png')">
-                        <img src="../assets/thumbnails/Deimos/DeimosStand.png" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Deimos/Deimos_dessert.jpeg')">
-                        <img src="../assets/thumbnails/Deimos/Deimos_dessert.jpeg" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item"
-                        onclick="openLightbox('assets/ARES Photos/Deimos/Deimos_night_integration.jpeg')">
-                        <img src="../assets/thumbnails/Deimos/Deimos_night_integration.jpeg" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Deimos/big_blue.jpeg')">
-                        <img src="../assets/thumbnails/Deimos/big_blue.jpeg" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Deimos/deimos_team.JPG')">
-                        <img src="../assets/thumbnails/Deimos/deimos_team.JPG" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Deimos/landscapeDeimos.png')">
-                        <img src="../assets/thumbnails/Deimos/landscapeDeimos.png" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Deimos/presentDeimos.png')">
-                        <img src="../assets/thumbnails/Deimos/presentDeimos.png" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Deimos/test_deimos.jpeg')">
-                        <img src="../assets/thumbnails/Deimos/test_deimos.jpeg" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Gallery/gallery1.jpeg')">
-                        <img src="../assets/thumbnails/Gallery/gallery1.jpeg" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Gallery/jackEats.JPG')">
-                        <img src="../assets/thumbnails/Gallery/jackEats.JPG" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Gallery/ladsCarry.JPG')">
-                        <img src="../assets/thumbnails/Gallery/ladsCarry.JPG" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Gallery/lizSnacks.JPG')">
-                        <img src="../assets/thumbnails/Gallery/lizSnacks.JPG" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Gallery/removeTag.jpg')">
-                        <img src="../assets/thumbnails/Gallery/removeTag.jpg" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/IRECD2.JPG')">
-                        <img src="../assets/thumbnails/IRECD2.JPG" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/IRECTeam.JPG')">
-                        <img src="../assets/thumbnails/IRECTeam.JPG" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Operations/lizphotos.jpg')">
-                        <img src="../assets/thumbnails/Operations/lizphotos.jpg" alt="ARES Gallery Image
-                             loading=" lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Operations/photo_shoot.jpeg')">
-                        <img src="../assets/thumbnails/Operations/photo_shoot.jpeg" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Operations/serplaunch.JPG')">
-                        <img src="../assets/thumbnails/Operations/serplaunch.JPG" alt="ARES Gallery Image
-                             loading=" lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Operations/showcaseCrowd.JPG')">
-                        <img src="../assets/thumbnails/Operations/showcaseCrowd.JPG" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item"
-                        onclick="openLightbox('assets/ARES Photos/Operations/showcaseleaders.JPG')">
-                        <img src="../assets/thumbnails/Operations/showcaseleaders.JPG" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Payload/payload_2.jpg')">
-                        <img src="../assets/thumbnails/Payload/payload_2.jpg" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Propulsion/DAQ_highres.jpeg')">
-                        <img src="../assets/thumbnails/Propulsion/DAQ_highres.jpeg" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Propulsion/cold_flow.jpeg')">
-                        <img src="../assets/thumbnails/Propulsion/cold_flow.jpeg" alt="ARES Gallery Image
-                             loading=" lazy">
-                    </div>
-
-                    <div class="gallery-item"
-                        onclick="openLightbox('assets/ARES Photos/Propulsion/daq_internals.jpeg')">
-                        <img src="../assets/thumbnails/Propulsion/daq_internals.jpeg" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Propulsion/hotfire.jpeg')">
-                        <img src="../assets/thumbnails/Propulsion/hotfire.jpeg" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Propulsion/hotfire_side.jpeg')">
-                        <img src="../assets/thumbnails/Propulsion/hotfire_side.jpeg" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Propulsion/jack_daq.jpeg')">
-                        <img src="../assets/thumbnails/Propulsion/jack_daq.jpeg" alt="ARES Gallery Image
-                             loading=" lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Propulsion/labjack.JPG')">
-                        <img src="../assets/thumbnails/Propulsion/labjack.JPG" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Propulsion/propulsion_1.png')">
-                        <img src="../assets/thumbnails/Propulsion/propulsion_1.png" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Propulsion/test_stand.jpeg')">
-                        <img src="../assets/thumbnails/Propulsion/test_stand.jpeg" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item"
-                        onclick="openLightbox('assets/ARES Photos/Propulsion/test_stand_side.jpeg')">
-                        <img src="../assets/thumbnails/Propulsion/test_stand_side.jpeg" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Recovery/bushland.JPG')">
-                        <img src="../assets/thumbnails/Recovery/bushland.JPG" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Recovery/chute.JPG')">
-                        <img src="../assets/thumbnails/Recovery/chute.JPG" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Recovery/chuterecovery.JPG')">
-                        <img src="../assets/thumbnails/Recovery/chuterecovery.JPG" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Recovery/recovery.JPG')">
-                        <img src="../assets/thumbnails/Recovery/recovery.JPG" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/SAC.jpeg')">
-                        <img src="../assets/thumbnails/SAC.jpeg" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/SAC22.JPG')">
-                        <img src="../assets/thumbnails/SAC22.JPG" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Simulations/anindo.JPG')">
-                        <img src="../assets/thumbnails/Simulations/anindo.JPG" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Teams Photos/Lemaire.JPG')">
-                        <img src="../assets/thumbnails/Teams Photos/Lemaire.JPG" alt="ARES Gallery Image
-                             loading=" lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/Teams Photos/LemaireTeam.JPG')">
-                        <img src="../assets/thumbnails/Teams Photos/LemaireTeam.JPG" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item"
-                        onclick="openLightbox('assets/ARES Photos/Teams Photos/checking_results.jpeg')">
-                        <img src="../assets/thumbnails/Teams Photos/checking_results.jpeg" alt="ARES Gallery Image"
-                            loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/bigBlueFlight.jpg')">
-                        <img src="../assets/thumbnails/bigBlueFlight.jpg" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/bigBlueLaunch.jpg')">
-                        <img src="../assets/thumbnails/bigBlueLaunch.jpg" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/bigBlueteam.jpg')">
-                        <img src="../assets/thumbnails/bigBlueteam.jpg" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/chet_int.jpeg')">
-                        <img src="../assets/thumbnails/chet_int.jpeg" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/clean_florence.png')">
-                        <img src="../assets/thumbnails/clean_florence.png" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/daq_mia.jpeg')">
-                        <img src="../assets/thumbnails/daq_mia.jpeg" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/florence_awards.jpeg')">
-                        <img src="../assets/thumbnails/florence_awards.jpeg" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/florence_flight.jpeg')">
-                        <img src="../assets/thumbnails/florence_flight.jpeg" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/florence_team_Sac.jpeg')">
-                        <img src="../assets/thumbnails/florence_team_Sac.jpeg" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/integrating.jpeg')">
-                        <img src="../assets/thumbnails/integrating.jpeg" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/integrating_rail.jpeg')">
-                        <img src="../assets/thumbnails/integrating_rail.jpeg" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/launch.jpeg')">
-                        <img src="../assets/thumbnails/launch.jpeg" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/leads_carry.jpeg')">
-                        <img src="../assets/thumbnails/leads_carry.jpeg" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/lemaire_launch_team.JPG')">
-                        <img src="../assets/thumbnails/lemaire_launch_team.JPG" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/lemwhitesands.JPG')">
-                        <img src="../assets/thumbnails/lemwhitesands.JPG" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
-                    <div class="gallery-item" onclick="openLightbox('assets/ARES Photos/marcus_irec.JPG')">
-                        <img src="../assets/thumbnails/marcus_irec.JPG" alt="ARES Gallery Image" loading="lazy">
-                    </div>
-
+                <div class="gallery-carousel animate-on-scroll delay-200" id="gallery-carousel">
+                    <div class="gallery-carousel__viewport">
+                        <button type="button" class="gallery-carousel__nav gallery-carousel__nav--prev"
+                            aria-label="Previous image">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+
+                        <figure class="gallery-carousel__slide">
+                            <img id="gallery-carousel-img" src="" alt="">
+                            <figcaption id="gallery-carousel-caption" class="gallery-carousel__caption"></figcaption>
+                        </figure>
+
+                        <button type="button" class="gallery-carousel__nav gallery-carousel__nav--next"
+                            aria-label="Next image">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <p class="gallery-carousel__meta">
+                        Image <span id="gallery-current">1</span> of <span id="gallery-total">0</span>
+                    </p>
                 </div>
             </div>
         </section>
@@ -418,14 +119,223 @@
     </div>
 
     <script>
+        // CHANGE: Gallery carousel — all images in GALLERY_IMAGES array; titles auto-generated from filenames.
+        // Prev/next arrows, keyboard nav, and click-to-lightbox for full-size view.
+        const GALLERY_IMAGES = [
+            'assets/ARES Photos/3rockets.JPG',
+            'assets/ARES Photos/Aerostructures/Unimelb closeup.JPG',
+            'assets/ARES Photos/Aerostructures/aerostructures_2.jpg',
+            'assets/ARES Photos/Aerostructures/close_up.jpeg',
+            'assets/ARES Photos/Aerostructures/machined.jpeg',
+            'assets/ARES Photos/Aerostructures/mock_int.JPG',
+            'assets/ARES Photos/Aerostructures/shinyCAD.png',
+            'assets/ARES Photos/Avionics/antenna_willB.jpeg',
+            'assets/ARES Photos/Avionics/avionicsSAC22.JPG',
+            'assets/ARES Photos/Avionics/avionics_2.jpg',
+            'assets/ARES Photos/Avionics/avionics_3.jpg',
+            'assets/ARES Photos/Avionics/avionics_mock_int.JPG',
+            'assets/ARES Photos/Avionics/irecAvionics.JPG',
+            'assets/ARES Photos/Deimos/DeimosStand.png',
+            'assets/ARES Photos/Deimos/Deimos_dessert.jpeg',
+            'assets/ARES Photos/Deimos/Deimos_night_integration.jpeg',
+            'assets/ARES Photos/Deimos/big_blue.jpeg',
+            'assets/ARES Photos/Deimos/deimos_team.JPG',
+            'assets/ARES Photos/Deimos/landscapeDeimos.png',
+            'assets/ARES Photos/Deimos/presentDeimos.png',
+            'assets/ARES Photos/Deimos/test_deimos.jpeg',
+            'assets/ARES Photos/Gallery/gallery1.jpeg',
+            'assets/ARES Photos/Gallery/jackEats.JPG',
+            'assets/ARES Photos/Gallery/ladsCarry.JPG',
+            'assets/ARES Photos/Gallery/lizSnacks.JPG',
+            'assets/ARES Photos/Gallery/removeTag.jpg',
+            'assets/ARES Photos/IRECD2.JPG',
+            'assets/ARES Photos/IRECTeam.JPG',
+            'assets/ARES Photos/Operations/lizphotos.jpg',
+            'assets/ARES Photos/Operations/photo_shoot.jpeg',
+            'assets/ARES Photos/Operations/serplaunch.JPG',
+            'assets/ARES Photos/Operations/showcaseCrowd.JPG',
+            'assets/ARES Photos/Operations/showcaseleaders.JPG',
+            'assets/ARES Photos/Payload/payload_2.jpg',
+            'assets/ARES Photos/Propulsion/DAQ_highres.jpeg',
+            'assets/ARES Photos/Propulsion/cold_flow.jpeg',
+            'assets/ARES Photos/Propulsion/daq_internals.jpeg',
+            'assets/ARES Photos/Propulsion/hotfire.jpeg',
+            'assets/ARES Photos/Propulsion/hotfire_side.jpeg',
+            'assets/ARES Photos/Propulsion/jack_daq.jpeg',
+            'assets/ARES Photos/Propulsion/labjack.JPG',
+            'assets/ARES Photos/Propulsion/propulsion_1.png',
+            'assets/ARES Photos/Propulsion/test_stand.jpeg',
+            'assets/ARES Photos/Propulsion/test_stand_side.jpeg',
+            'assets/ARES Photos/Recovery/bushland.JPG',
+            'assets/ARES Photos/Recovery/chute.JPG',
+            'assets/ARES Photos/Recovery/chuterecovery.JPG',
+            'assets/ARES Photos/Recovery/recovery.JPG',
+            'assets/ARES Photos/SAC.jpeg',
+            'assets/ARES Photos/SAC22.JPG',
+            'assets/ARES Photos/Simulations/anindo.JPG',
+            'assets/ARES Photos/Teams Photos/Lemaire.JPG',
+            'assets/ARES Photos/Teams Photos/LemaireTeam.JPG',
+            'assets/ARES Photos/Teams Photos/checking_results.jpeg',
+            'assets/ARES Photos/bigBlueFlight.jpg',
+            'assets/ARES Photos/bigBlueLaunch.jpg',
+            'assets/ARES Photos/bigBlueteam.jpg',
+            'assets/ARES Photos/chet_int.jpeg',
+            'assets/ARES Photos/clean_florence.png',
+            'assets/ARES Photos/daq_mia.jpeg',
+            'assets/ARES Photos/florence_awards.jpeg',
+            'assets/ARES Photos/florence_flight.jpeg',
+            'assets/ARES Photos/florence_team_Sac.jpeg',
+            'assets/ARES Photos/integrating.jpeg',
+            'assets/ARES Photos/integrating_rail.jpeg',
+            'assets/ARES Photos/launch.jpeg',
+            'assets/ARES Photos/leads_carry.jpeg',
+            'assets/ARES Photos/lemaire_launch_team.JPG',
+            'assets/ARES Photos/lemwhitesands.JPG',
+            'assets/ARES Photos/marcus_irec.JPG'
+        ];
+
+        const TITLE_OVERRIDES = {
+            '3rockets': 'Three Rocket Lineup',
+            'Unimelb closeup': 'UniMelb Rocket Closeup',
+            'aerostructures_2': 'Aerostructures Mock Integration',
+            'close_up': 'Airframe Close Up',
+            'machined': 'Machined Aerostructure Parts',
+            'mock_int': 'Mock Integration',
+            'shinyCAD': 'CAD Render',
+            'antenna_willB': 'Antenna Assembly',
+            'avionicsSAC22': 'Avionics at SAC 2022',
+            'avionics_2': 'Avionics at IREC',
+            'avionics_3': 'Avionics at SAC 2022',
+            'avionics_mock_int': 'Avionics Mock Integration',
+            'irecAvionics': 'IREC Avionics Setup',
+            'DeimosStand': 'Deimos on Launch Stand',
+            'Deimos_dessert': 'Deimos Desert Launch Site',
+            'Deimos_night_integration': 'Deimos Night Integration',
+            'big_blue': 'Big Blue at Desert Launch',
+            'deimos_team': 'Deimos Team Photo',
+            'landscapeDeimos': 'Deimos Desert Landscape',
+            'presentDeimos': 'Deimos Presentation',
+            'test_deimos': 'Deimos Test Launch',
+            'gallery1': 'Team at Launch Site',
+            'jackEats': 'Team Meal Break',
+            'ladsCarry': 'Carrying the Rocket',
+            'lizSnacks': 'Team Snack Break',
+            'removeTag': 'Removing Competition Tag',
+            'IRECD2': 'IREC Day 2',
+            'IRECTeam': 'IREC Team Photo',
+            'lizphotos': 'Operations Photography',
+            'photo_shoot': 'Team Photo Shoot',
+            'serplaunch': 'Serpentine Launch',
+            'showcaseCrowd': 'Showcase Crowd',
+            'showcaseleaders': 'Leadership at Showcase',
+            'payload_2': 'Payload Development',
+            'DAQ_highres': 'DAQ System High Resolution',
+            'cold_flow': 'Cold Flow Test',
+            'daq_internals': 'DAQ Cabinet Internals',
+            'hotfire': 'Hybrid Engine Hot Fire',
+            'hotfire_side': 'Hot Fire Side View',
+            'jack_daq': 'DAQ Setup',
+            'labjack': 'LabJack Data Acquisition',
+            'propulsion_1': 'Propulsion Hot Fire',
+            'test_stand': 'Engine Test Stand',
+            'test_stand_side': 'Test Stand Side View',
+            'bushland': 'Recovery in Bushland',
+            'chute': 'Parachute Packing',
+            'chuterecovery': 'Parachute Recovery',
+            'recovery': 'Recovery System',
+            'SAC': 'Spaceport America Cup',
+            'SAC22': 'SAC 2022',
+            'anindo': 'Simulations Team',
+            'Lemaire': 'Project Lemaire',
+            'LemaireTeam': 'Lemaire Team Photo',
+            'checking_results': 'Checking Competition Results',
+            'bigBlueFlight': 'Big Blue in Flight',
+            'bigBlueLaunch': 'Big Blue Launch',
+            'bigBlueteam': 'Big Blue Team Photo',
+            'chet_int': 'Integration Work',
+            'clean_florence': 'Project Florence',
+            'daq_mia': 'DAQ System Setup',
+            'florence_awards': 'Florence Awards Ceremony',
+            'florence_flight': 'Florence in Flight',
+            'florence_team_Sac': 'Florence Team at SAC',
+            'integrating': 'Rocket Integration',
+            'integrating_rail': 'Rail Guide Integration',
+            'launch': 'Rocket Launch',
+            'leads_carry': 'Leadership Carrying Rocket',
+            'lemaire_launch_team': 'Lemaire Launch Team',
+            'lemwhitesands': 'Lemaire at White Sands',
+            'marcus_irec': 'Marcus at IREC'
+        };
+
+        const ACRONYMS = new Set(['IREC', 'SAC', 'DAQ', 'CAD', 'ARES', 'CO2', 'GSE', 'SAC22']);
+
+        function titleFromPath(path) {
+            const filename = path.split('/').pop().replace(/\.[^.]+$/, '');
+            if (TITLE_OVERRIDES[filename]) {
+                return TITLE_OVERRIDES[filename];
+            }
+
+            let title = filename
+                .replace(/_/g, ' ')
+                .replace(/-/g, ' ')
+                .replace(/([a-z])([A-Z])/g, '$1 $2')
+                .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2')
+                .replace(/(\d+)/g, ' $1 ')
+                .replace(/\s+/g, ' ')
+                .trim();
+
+            return title.split(' ').map(word => {
+                const upper = word.toUpperCase();
+                if (ACRONYMS.has(upper)) return upper;
+                if (/^\d+$/.test(word)) return word;
+                return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+            }).join(' ');
+        }
+
+        let currentIndex = 0;
+
+        function resolveImagePath(path) {
+            return path.startsWith('../') || path.startsWith('http') ? path : '../' + path;
+        }
+
+        function updateSlide(index) {
+            currentIndex = index;
+            const path = GALLERY_IMAGES[index];
+            const title = titleFromPath(path);
+            const img = document.getElementById('gallery-carousel-img');
+
+            img.src = resolveImagePath(path);
+            img.alt = title;
+            document.getElementById('gallery-carousel-caption').textContent = title;
+            document.getElementById('gallery-current').textContent = index + 1;
+            document.getElementById('gallery-total').textContent = GALLERY_IMAGES.length;
+        }
+
+        function goToSlide(index) {
+            const total = GALLERY_IMAGES.length;
+            const nextIndex = ((index % total) + total) % total;
+            updateSlide(nextIndex);
+        }
+
+        function initGalleryCarousel() {
+            document.getElementById('gallery-total').textContent = GALLERY_IMAGES.length;
+
+            document.querySelector('.gallery-carousel__nav--prev')
+                .addEventListener('click', () => goToSlide(currentIndex - 1));
+            document.querySelector('.gallery-carousel__nav--next')
+                .addEventListener('click', () => goToSlide(currentIndex + 1));
+
+            document.getElementById('gallery-carousel-img')
+                .addEventListener('click', () => openLightbox(GALLERY_IMAGES[currentIndex]));
+
+            updateSlide(0);
+        }
+
         function openLightbox(src) {
             const lightbox = document.getElementById('lightbox');
             const img = document.getElementById('lightbox-img');
-            // Fix for relative path issue since gallery is in a subdirectory
-            if (!src.startsWith('../') && !src.startsWith('http')) {
-                src = '../' + src;
-            }
-            img.src = src;
+            img.src = resolveImagePath(src);
+            img.alt = titleFromPath(src);
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -434,7 +344,7 @@
             const lightbox = document.getElementById('lightbox');
             lightbox.classList.remove('active');
             document.body.style.overflow = 'auto';
-            document.getElementById('lightbox-img').src = ''; // Clear source
+            document.getElementById('lightbox-img').src = '';
         }
 
         document.getElementById('lightbox').addEventListener('click', (e) => {
@@ -443,12 +353,21 @@
             }
         });
 
-        // Close on Escape key
         document.addEventListener('keydown', (e) => {
+            const lightboxOpen = document.getElementById('lightbox').classList.contains('active');
+
             if (e.key === 'Escape') {
                 closeLightbox();
+                return;
             }
+
+            if (lightboxOpen) return;
+
+            if (e.key === 'ArrowLeft') goToSlide(currentIndex - 1);
+            if (e.key === 'ArrowRight') goToSlide(currentIndex + 1);
         });
+
+        initGalleryCarousel();
     </script>
 
 </body>
