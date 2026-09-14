@@ -42,12 +42,19 @@
     </header>
 
     <main>
-        <!-- CHANGE: Replaced vertical image grid with carousel + lightbox (see script below) -->
-        <section class="section" style="padding-top: 120px;">
+        <section class="page-banner"
+            style="background-image: url('../assets/ARES%20Photos/launch.jpeg');">
             <div class="container">
-                <h2 class="section__title animate-on-scroll">Gallery</h2>
-                <p class="animate-on-scroll delay-100" style="text-align: center; margin-bottom: 30px; font-size: 1.2rem;">A little peek into life in
-                    ARES...</p>
+                <div class="page-banner__content">
+                    <h1 class="page-banner__title">Gallery</h1>
+                    <p class="page-banner__subtitle">A little peek into life in ARES...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHANGE: Replaced vertical image grid with carousel + lightbox (see script below) -->
+        <section class="section">
+            <div class="container">
                 <div class="gallery-carousel animate-on-scroll delay-200" id="gallery-carousel">
                     <div class="gallery-carousel__viewport">
                         <button type="button" class="gallery-carousel__nav gallery-carousel__nav--prev"

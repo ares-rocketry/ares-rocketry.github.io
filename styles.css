@@ -138,6 +138,81 @@ p {
     background-color: var(--color-bg-light);
 }
 
+/* Photo banner header (shared) — interior page headers with a background image.
+   Set the image inline: <section class="page-banner" style="background-image: url('...')"> */
+.page-banner {
+    position: relative;
+    padding: 100px 0;
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.page-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0, 15, 70, 0.88) 0%,
+        rgba(0, 15, 70, 0.55) 45%,
+        rgba(0, 15, 70, 0.2) 100%
+    );
+}
+
+.page-banner .container {
+    position: relative;
+    z-index: 1;
+}
+
+.page-banner__content {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-banner__title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    line-height: 1.1;
+    color: var(--color-white);
+    margin-bottom: var(--spacing-md);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-banner__title::after {
+    content: '';
+    width: 60px;
+    height: 3px;
+    background: var(--color-secondary);
+    margin-top: var(--spacing-sm);
+}
+
+.page-banner__subtitle {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 1.15rem;
+    max-width: 540px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .page-banner {
+        padding: 90px 0;
+        min-height: 280px;
+    }
+
+    .page-banner__title {
+        font-size: 2.25rem;
+    }
+}
+
 /* Header */
 .header {
     position: sticky;
