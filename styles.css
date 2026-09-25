@@ -10,8 +10,11 @@
     --color-text-muted: #555555;
 
     /* Typography */
-    --font-heading: 'Fraunces', serif;
-    --font-body: 'Source Sans Pro', sans-serif;
+    /* Shared fallback stack: if a webfont fails to load, headings and body
+       degrade to the SAME face instead of clashing serif vs sans-serif. */
+    --font-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-heading: 'Fraunces', var(--font-fallback);
+    --font-body: 'Source Sans Pro', var(--font-fallback);
 
     /* Spacing */
     --spacing-sm: 8px;
@@ -33,6 +36,15 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+/* Form controls and buttons do not inherit font-family from body, so they
+   would otherwise fall back to the browser's UI font. */
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
 }
 
 html {
